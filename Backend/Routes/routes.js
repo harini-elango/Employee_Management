@@ -1,26 +1,19 @@
-// routes/departmentRoutes.js
 import express from 'express';
+
 import {
-  createDepartment,
-  getAllDepartments,
-} from '../Controller/departmentController.js';
+  createEmployee,
+  getAllEmployees,
+} from '../Controller/creatediffroleController.js';
 
 const router = express.Router();
 
-// Create a new department
-router.post('/departments', createDepartment);
 
-// Get all departments
-router.get('/departments', getAllDepartments);
+// Create a new Employee with different roles
+router.post('/employees', createEmployee);
 
-// // Get a department by department ID
-// router.get('/departments/:id', getDepartmentById);
+// Get a Employee
+router.get('/employees/:id', getAllEmployees);
 
-// // Update a department by department ID
-// router.put('/departments/:id', updateDepartmentById);
-
-// // Delete a department by department ID
-// router.delete('/departments/:id', deleteDepartmentById);
 
 export default router;
 
