@@ -5,103 +5,63 @@ const employeeSchema = new Schema({
   emp_id: {
     type: Number,
     unique: true,
-    // Regular expression for a positive integer (one or more digits)
-    validate: {
-      validator: function (v) {
-        return /^\d+$/.test(v);
-      },
-      message: 'Employee ID must be a positive integer.',
-    },
-    required: [true, 'Employee ID is required.'],
+    required:true,
   },
   firstname: {
     type: String,
-    match: /^[A-Za-z ]+$/,
-    required: [true, 'First name is required.'],
+    required:true,
   },
   lastname: {
     type: String,
-    match: /^[A-Za-z ]+$/,
-    required: [true, 'Last name is required.'],
+    required:true,
   },
   gender: {
     type: String,
     enum: ['Male', 'Female', 'Other'],
-    required: [true, 'Gender is required.'],
+    required:true,
   },
   address: {
     type: String,
-    match: /^[A-Za-z0-9 .,-]+$/,
-    required: [true, 'Address is required.'],
+    required:true,
+  
   },
   email: {
     type: String,
-    match: /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
-    required: [true, 'Email address is required.'],
+    required:true,
+  
   },
   mobile_no: {
     type: Number,
-    validate: {
-      validator: function (v) {
-        return /^\d{10}$/.test(v);
-      },
-      message: 'Mobile number must be a 10-digit positive integer.',
-    },
-    required: [true, 'Mobile number is required.'],
+    required:true,
   },
   age: {
     type: Number,
-    validate: {
-      validator: function (value) {
-        return /^\d+$/.test(value) && value >= 21;
-      },
-      message: 'Age must be a positive integer and at least 21 years old.',
-      required: [true, 'Age is required.'],
-    },
+    required:true,
   },
   
   date_of_join: {
     type: Date,
-    required: [true, 'Date of join is required.'],
+    required:true,
   },
   dept_id: {
     type: Number,
-    validate: {
-      validator: function (v) {
-        return /^\d+$/.test(v);
-      },
-      message: 'Department ID must be a positive integer.',
-    },
-    required: [true, 'Department ID is required.'],
+    required:true,
   },
   dept_name: {
     type: String,
-    match: /^[A-Za-z ]+$/,
-    required: [true, 'Department name is required.'],
+    required:true,
   },
   role_id: {
     type: Number,
-    validate: {
-      validator: function (v) {
-        return /^\d+$/.test(v);
-      },
-      message: 'Role ID must be a positive integer.',
-    },
-    required: [true, 'Role ID is required.'],
+    required:true,
   },
   role_name: {
     type: String,
-    match: /^[A-Za-z ]+$/,
-    required: [true, 'Role name is required.'],
+    required:true,
   },
   reporting_to_id: {
     type: Number,
-    validate: {
-      validator: function (v) {
-        return /^\d*$/.test(v);
-      },
-      message: 'Reporting to ID must be a positive integer or an empty field.',
-    },
+    required:true,
   },
   inserted_date: {
     type: Date,
@@ -117,11 +77,9 @@ const employeeSchema = new Schema({
   },
   inserted_by: {
     type: String,
-    match: /^[A-Za-z]+$/,
   },
   updated_by: {
     type: String,
-    match: /^[A-Za-z]+$/,
   },
 });
 
