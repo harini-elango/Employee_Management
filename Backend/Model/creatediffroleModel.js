@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import dbConnection from '../Config/MongoDB.js';
+// import dbConnection from '../Config/MongoDB.js';
 
 const employeeSchema = new Schema({
   emp_id: {

@@ -1,33 +1,12 @@
-// controllers/creatediffroleController.js
 import Employee from '../Model/creatediffroleModel.js';
 
 // Create a new Employee with different roles
 const createEmployee = async (req, res) => {
   try {
-    const { emp_id, firstname, lastname, gender, address, email, mobile_no, age, date_of_join, dept_id, dept_name, role_id, role_name, reporting_to_id, inserted_by, updated_by, is_active_flag } = req.body;
-    console.log('Received request to create a new employee:', req.body);
+    const toCreateEmployee = req.body;
+    console.log('Received request to create a new employee:', toCreateEmployee);
 
-    const newEmployee = new Employee({
-        emp_id,
-        firstname,
-        lastname,
-        gender,
-        address,
-        email,
-        mobile_no,
-        age,
-        date_of_join,
-        dept_id,
-        dept_name,
-        role_id,
-        role_name,
-        reporting_to_id,
-        inserted_by,
-        updated_by,
-        is_active_flag
-
-    });
-
+    const newEmployee = new Employee(toCreateEmployee);
     const savedEmployee = await newEmployee.save();
     console.log('New employee created with different roles and saved:', savedEmployee);
 
@@ -37,6 +16,7 @@ const createEmployee = async (req, res) => {
     res.status(500).json({ error: 'Failed to create employee with different roles' });
   }
 };
+
 
 
 // To get Employee by id
