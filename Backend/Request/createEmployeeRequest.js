@@ -5,21 +5,21 @@ import Employee from '../Model/createEmployeeModel.js';
 const preparevalidateemployeedata = async (req) => {
   // Validation and sanitization rules for request fields
   const validations = [
-    body('firstname').isString().notEmpty().withMessage('Firstname is required'),
-    body('lastname').isString().notEmpty().withMessage('Lastname is required'),
+    body('firstname').trim().isString().notEmpty().withMessage('Firstname is required').isAlpha().withMessage('Firstname should contain only alphabets'),
+    body('lastname').trim().isString().notEmpty().withMessage('Lastname is required').isAlpha().withMessage('Lastname should contain only alphabets'),
     body('gender').isIn(['Male', 'Female', 'Other']).withMessage('Invalid gender'),
-    body('address').isString().notEmpty().withMessage('Address is required'),
+    body('address').trim().isString().notEmpty().withMessage('Address is required'),
     body('email').isEmail().withMessage('Invalid email address'),
     body('mobile_no').matches(/^[0-9]{10}$/).withMessage('Mobile number must contain exactly 10 digits').toInt(), // Convert the valid 10-digit number to an integer
     body('age').isInt().withMessage('Age must be an integer'),
     body('date_of_join').isDate().withMessage('Invalid date format for date_of_join'),
     body('dept_id').isInt().withMessage('Department ID must be an integer'),
-    body('dept_name').isString().notEmpty().withMessage('Department Name is required'),
+    body('dept_name').trim().isString().notEmpty().withMessage('Department Name is required').matches(/^[A-Za-z ]+$/).withMessage('Department Name should contain only alphabets'),
     body('role_id').isInt().withMessage('Role ID must be an integer'),
-    body('role_name').isString().notEmpty().withMessage('Role Name is required'),
+    body('role_name').trim().isString().notEmpty().withMessage('Role Name is required').matches(/^[A-Za-z ]+$/).withMessage('Role Name should contain only alphabets'),
     body('reporting_to_id').isInt().withMessage('Reporting to ID must be an integer'),
-    body('inserted_by').isString().withMessage('Inserted by must be a string'),
-    body('updated_by').isString().withMessage('Updated by must be a string'),
+    body('inserted_by').trim().isString().withMessage('Inserted by must be a string').isAlpha().withMessage('Inserted by should contain only alphabets'),
+    body('updated_by').trim().isString().withMessage('Updated by must be a string').isAlpha().withMessage('Updated by should contain only alphabets'),
     body('is_active_flag').isBoolean().withMessage('is_active_flag must be a boolean'),
   ];
 
