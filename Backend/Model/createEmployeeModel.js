@@ -6,6 +6,7 @@ const employeeSchema = new Schema({
     type: Number,
     unique: true,
     required:true,
+    index:true,
   },
   firstname: {
     type: String,
